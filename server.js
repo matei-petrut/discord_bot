@@ -14,6 +14,10 @@ client.login(process.env.BOT_TOKEN);
 
 client.on('message', async message => {
 
+    if (message.content.toLowerCase() === PREFIX + 'per') {
+        console.log(message.client.voice).send('Mue Perseus!');
+    }
+
     if (message.content.toLowerCase() ===  PREFIX + 'taci') {
         const voiceChannel = message.member.voice.channel;
 
@@ -36,11 +40,6 @@ client.on('message', async message => {
 });
 
 client.on('voiceStateUpdate', async (oldState, newState) => {
-    
-    // if (message.content.toLowerCase() === '!per') {
-    //     console.log(message.client.voice);.send('Mue Perseus!');
-    // }
-
     let newUserChannel = newState.channelID;
     let oldUserChannel = oldState.channelID;
 
